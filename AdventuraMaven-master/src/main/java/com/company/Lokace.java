@@ -9,8 +9,8 @@ import java.util.List;
 public class Lokace { //důležitý kam můžeme jít a co tam můžeme provádět
     //seskupení sekcí, co můžeme na nějakým místě dělat
 
-    private List predmety; //tohle jsou property
     public List povoleneAkce;
+    private List predmety; //tohle jsou property
     private Bytost bytost;
 
     public Lokace (List akce) { //List - definuje listy, seznamy (ArrayList je podmnožina List)
@@ -62,7 +62,9 @@ public class Lokace { //důležitý kam můžeme jít a co tam můžeme provád�
         povoleneAkce = new ArrayList<>(povoleneAkce);
         povoleneAkce.remove("utok"); //něco v uvozovkách je instance řetězcejdi
     }
-
+    public String serialize(){
+        return "-" + this.povoleneAkce + "," + this.bytost + "," + this.predmety + "; " + "\n";
+    }
 }
 
 

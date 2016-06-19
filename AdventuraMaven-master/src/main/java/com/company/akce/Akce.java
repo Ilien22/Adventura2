@@ -36,6 +36,9 @@ public class Akce { // každá akce nějekej příkaz a ... - konstruktor pro dv
         }
 
     }
+    public void proved (String[] parametry){
+
+    }
 
     public String getPrikaz() { //tohle tu píšem protože public String prikaz; by melo byt private, aby nám to nikdo neměnil a tohle public String getPrikaz nám dovolí zjisti jakou informaci by to případné private String prikaz;
         return prikaz;

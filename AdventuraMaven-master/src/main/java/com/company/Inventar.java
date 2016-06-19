@@ -31,7 +31,9 @@ public class Inventar {
 
     public boolean over (String vec) {       //boolean = true/false
         return predmety.contains(vec);      // vrať výsledek téhle operace
-
+    }
+    public String serialize () {
+        return "Inventar - " + this.predmety;
     }
 
 }

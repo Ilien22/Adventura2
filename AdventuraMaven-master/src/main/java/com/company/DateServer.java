@@ -12,12 +12,15 @@ import java.util.Date;
 public class DateServer {
     public static void main (String[] args) throws IOException {
         ServerSocket listener = new ServerSocket(9090);
-        Socket socket = listener.accept(); //vrací objekt typu socket, bez toho se nedozvíme, že se něco stalo (jinak by listener jen seděl a poslouchal
-        //Socket má metodu getInputStream() a getOnputStream()-output=výstup
-        PrintWriter out = new PrintWriter(socket.getOutputStream(), true); //dělá formát prezentující objekt do formátu output  (usnadňuje psaní řetězců)
-        out.println(new Date().toString());
-        socket.close();
+        while (true) {
+            Socket socket = listener.accept(); //vrací objekt typu socket, bez toho se nedozvíme, že se něco stalo (jinak by listener jen seděl a poslouchal ;; accept je metoda, která je blokující a java čeká dokud nedostane spojení - zanořením do nekonečného cyklu bude moct přijmout víc než jedno spojení
+            //Socket má metodu getInputStream() a getOnputStream()-output=výstup
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true); //dělá formát prezentující objekt do formátu output  (usnadňuje psaní řetězců)
+            out.println(new Date().toString());
+            System.out.println("Spojení přijato");
+            socket.close();
         }//tímhle máme server, teĎ  musíma napsat klienta v testu
+    }
 }
 /*
 Porty
@@ -39,4 +42,9 @@ ServerSocket – reprezentace portu; třída co poslouchá na nějakým portu
 Socket (zdířka) – představuje jednoho připojeného uživatele
 Metoda accept -
 
+
+nekonečno -
+1) while true -
+2) for cyklus obsahující ;;
+//while se používá pokud nevim, kolikrát chci nějakou věc opakovat... for pokud vim kolikrát (můžu tam jednoduše nacpat číslo)
  */

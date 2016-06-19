@@ -98,9 +98,15 @@ public class Mapa {  //souradnice x,y pole, a kam muzeme jit
             return aktualniPozice;
 
     }
- /*   public String serialize (){
-        aktualniPozice.serialize();
-    } */
+    public String serialize (){
+        String result = "";
+        for (Map.Entry<Pozice, Lokace> entry: povoleneLokace.entrySet()) { //for cyklus na class Entry zanořenou do tříty Map <Key, Value
+            result += entry.getKey().serialize();
+            result += entry.getValue().serialize();
+        }
+        result += "\n" + aktualniPozice.serialize();
+        return result;
+    }
 }
 
 

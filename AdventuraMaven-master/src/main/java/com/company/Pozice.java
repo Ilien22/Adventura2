@@ -51,7 +51,7 @@ public class Pozice {
 
         return y;
     }
- /*   public String serialize (){
-        return getX()+ "," + getY();
-    } */
+ public String serialize (){
+        return "\n" + getX()+ "," + getY();
+    }
 }

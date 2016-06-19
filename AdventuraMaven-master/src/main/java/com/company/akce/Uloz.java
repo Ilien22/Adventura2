@@ -1,34 +1,42 @@
-/*package com.company.akce;
+package com.company.akce;
+
+import com.company.Hrdina;
+import com.company.Mapa;
 
 import java.io.FileWriter;
 
 /**
  * Created by Tibor on 15. 5. 2016.
  */
-/* public class Uloz extends Akce { //kde je, kolik zivotu, co má u sebe, stav lokací
-  public Uloz (){
+public class Uloz extends Akce { //kde je, kolik zivotu, co má u sebe, stav lokací
+
+    Mapa mapa;
+    Hrdina hrdina;
+
+  public Uloz (Mapa mapa, Hrdina hrdina){
       super ("uloz", 1);
+      this.mapa = mapa;
+      this.hrdina = hrdina;
 
     }
     public void proved (String [] parametry){
         try {
-            FileWriter fw = new FileWriter (parametry [1]);
-            fw.write(); //write přepisuje, append připis1uje
+            FileWriter fw = new FileWriter (parametry [1] + ".txt");
+            fw.write(mapa.serialize() + "\n" + hrdina.serialize());  //write přepisuje, append připis1uje;;; do závorky napsat, co se má psát do .txt
+            fw.flush();
+            fw.close();
         }
         catch (Exception e){
             e.printStackTrace (); //tohle vypíše co se stalo za chybu
         }
-
-
-
     }//na každé metode budu muset udělat metodu serialize, abych mohl něco uložit (public String serialize) - není to klasická metoda, jen se používá tohle slovo
 }
 
 
 /*Užiteční je balení souborů pod sebe
-Cemelcase:
-File writer - vyhazujou vyjímky, který museíme zachytávat (vyjímka checked)
-File reader -
+
+FileWriter - vyhazujou vyjímky, který museíme zachytávat (vyjímka checked)
+FileReader -
 .json a .xml - xml je bestie co umí všechno, ale je dost ukecaná, ale náročná na manipulaci
              - json nic neumí, ale dobře se s ním přenáší data z jednoho souboru do druhýho
 

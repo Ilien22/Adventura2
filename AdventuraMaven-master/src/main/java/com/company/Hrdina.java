@@ -18,10 +18,17 @@ public class Hrdina extends Bytost {
         return inventar;
     }
 
- /*   public String serialize (){
-        getZivoty().serialize();
+public String serialize (){
+    Inventar inventar = new Inventar();
+    return "Herdina - " + "životy: " + getZivoty() + " útok: " + getUtok() + " Obrana: " + getObrana() + "\n" + inventar.serialize();
+}
+
+    /*        getZivoty().serialize();   tohle očividně nefunguje
         getObrana().serialize();
         getUtok().serialize();
+        inventar.serialize();
         serialize().contains(zivoty(getZivoty()), utok(), obrana(), inventar());
-   } */
+   }
+}
+*/
 }
